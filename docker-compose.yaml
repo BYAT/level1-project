@@ -1,0 +1,8 @@
+version: '3.5'
+services:
+        project-assessment-site:
+                container_name: dob-container
+                image: dob-image
+                build: ./project-assessment-site
+                ports: 
+                        - "80:80"
