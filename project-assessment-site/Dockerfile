@@ -1,12 +1,13 @@
-FROM node:alpine
+FROM node:alpine3.10
 
 RUN apk add docker docker-compose make bash git  
 
 WORKDIR /project-assessment-site 
-COPY package.json /app
 RUN npm install 
-COPY . /app
-CMD node index.js
+COPY . /project-assessment-site
+ENTRYPOINT ["node"]
+
+CMD ["index.js"]
 EXPOSE 80
 
 
