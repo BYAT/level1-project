@@ -1,10 +1,10 @@
-FROM node:alpine3.10
+FROM node:lts-alpine3.10
 
 RUN apk add docker docker-compose make bash git
-RUN npm install
 
 WORKDIR /department-service
-
+COPY package.json /department-service
+run npm install 
 COPY . /department-service
 
 ENTRYPOINT ["node"]
