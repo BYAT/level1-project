@@ -1,6 +1,6 @@
-build:
-	sudo apt install maven && mvn clean package && docker build -t role:latest .
 
+build:
+	docker build -t role:latest .
 run:
 	docker run -it -d -p 8082:80 role:latest
 
