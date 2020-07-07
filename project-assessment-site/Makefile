@@ -1,5 +1,5 @@
 build:
-		npm install && docker build -t dob-image:v1 .
+		docker build -t dob-image:v1 .
 
 run:
 		docker run -it -d -p 80:80 dob-image:v1
