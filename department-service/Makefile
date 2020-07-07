@@ -1,5 +1,5 @@
 build:
-		npm install && docker build -t department:latest .
+		docker build -t department:latest .
 
 run:
 		docker run -it -d -p 8083:80 department:latest
