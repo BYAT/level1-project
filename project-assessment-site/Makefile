@@ -5,20 +5,17 @@ run:
 		docker run -it -d -p 80:80 dob-image:v1
 
 debug:
-		docker exec -it dob-image:v1 sh
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep dob-image:v1 | awk '{print $$1 }' | xargs -I {} docker exec -it {}
 logs:
-		docker logs dob-image:v1
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep dob-image:v1 | awk '{print $$1 }' | xargs -I {} docker logs {}
 follow:
-		docker logs -f dob-image:v1
+                docker ps -a | awk '{ print $$1,$$2 }' | grep dob-image:v1 | awk '{print $$1 }' | xargs -I {} docker logs -f {}
 
 stop:
-		docker stop dob-image:v1
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep dob-image:v1 | awk '{print $$1 }' | xargs -I {} docker stop {}
 clean:
-		docker rm dob-image:v1
+                docker ps -a | awk '{ print $$1,$$2 }' | grep dob-image:v1 | awk '{print $$1 }' | xargs -I {} docker rm {}
 
 curl:
-	curl -sS http://157.175.57.19
+	curl -sS http://15.185.52.221
 
