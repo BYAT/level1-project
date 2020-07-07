@@ -5,20 +5,18 @@ run:
 		docker run -it -d -p 8083:80 department:latest
 
 debug:
-		docker exec -it department:latest sh
+		docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker exec -it {}
 
 logs:
-		docker logs department:latest
+		docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker docker logs {}
 
 follow:
-		docker logs -f department:latest
+                docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker docker logs -f {}
 
 stop:
-		docker stop department:latest
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker stop {}
 clean:
-		docker rm department:latest
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker rm {}
 curl:
-		curl -sS http://157.175.57.19:8083/department | jq '.'
+                curl -sS http://15.185.52.221:8083/department | jq '.'
 
