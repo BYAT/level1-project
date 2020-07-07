@@ -3,7 +3,7 @@ build:
 run:
 		docker run -it -d -p 8081:80 person:latest
 debug:
-        docker ps -a | awk '{ print $$1,$$2 }' | grep person:latest | awk '{print $$1 }' | xargs -I {} docker exec -it {}
+	docker ps -a | awk '{ print $$1,$$2 }' | grep person:latest | awk '{print $$1 }' | xargs -I {} docker exec -it {}
 logs:
 	docker ps -a | awk '{ print $$1,$$2 }' | grep person:latest | awk '{print $$1 }' | xargs -I {} docker logs {}
 follow:
