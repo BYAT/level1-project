@@ -1,4 +1,4 @@
-NESHELL:
+.ONESHELL:
 	SHELL = /bin/bash
 
 up:

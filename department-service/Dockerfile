@@ -2,13 +2,17 @@ FROM node:lts-alpine3.10
 
 RUN apk add docker docker-compose make bash git
 
+WORKDIR /department-service
 
-WORKDIR /office-service
-COPY package.json /office-service
+COPY package.json /department-service
+
 run npm install 
-COPY . /office-service
+
+COPY . /department-service
+
 ENTRYPOINT ["node"]
 
 CMD ["index.js"]
 EXPOSE 80
+
 
