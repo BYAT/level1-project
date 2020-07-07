@@ -11,12 +11,12 @@ logs:
 		docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker docker logs {}
 
 follow:
-                docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker docker logs -f {}
+	docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker docker logs -f {}
 
 stop:
-                docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker stop {}
+	docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker stop {}
 clean:
-                docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker rm {}
+	docker ps -a | awk '{ print $$1,$$2 }' | grep department:latest | awk '{print $$1 }' | xargs -I {} docker rm {}
 curl:
-                curl -sS http://15.185.52.221:8083/department | jq '.'
+	curl -sS http://15.185.52.221:8083/department | jq '.'
 
