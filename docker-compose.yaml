@@ -1,8 +1,27 @@
 version: '3.5'
 services:
         project-assessment-site:
-                container_name: dob-container
                 image: dob-image
                 build: ./project-assessment-site
                 ports: 
                         - "80:80"
+        person-service:
+                image: person:latest
+                build: ./person-service
+                ports:
+                        - "8081:80"
+        office-service:
+                image: office:latest
+                build: ./office-service
+                ports:
+                         - "8084:80"
+        role-service: 
+                image: role:latest
+                build: ./role-service
+                ports:
+                         - "8082:80"
+        department-service:
+                image: department:latest
+                build: ./department-service
+                ports:
+                         - "8083:80"
