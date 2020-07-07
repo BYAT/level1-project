@@ -2,6 +2,8 @@ FROM node:alpine3.10
 
 RUN apk add docker docker-compose make bash git
 
+RUN npm install
+
 WORKDIR /office-service
 
 

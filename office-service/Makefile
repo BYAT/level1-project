@@ -1,5 +1,5 @@
 build:
-	 npm install && docker build -t office:latest .
+	 docker build -t office:latest .
 run:
 	 docker run -it -d -p 8084:80 office:latest 
 
