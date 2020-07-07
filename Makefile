@@ -1,12 +1,14 @@
 NESHELL:
 	SHELL = /bin/bash
 
-
 up:
 		docker-compose up -d
 
 down:
 		docker-compose down
+
+rebulid:
+		docker-compose build
 
 clean:
 		docker rm -f $$(docker ps -aq)
