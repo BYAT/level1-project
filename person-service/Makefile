@@ -3,20 +3,18 @@ build:
 run:
 		 docker run -it -d -p 8081:80 person:latest
 debug:
-		docker exec -it person:latest sh
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep person:latest | awk '{print $$1 }' | xargs -I {} docker exec -it {}
 logs:
-		docker logs person:latest
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep person:latest | awk '{print $$1 }' | xargs -I {} docker logs {}
 follow:
-		docker logs -f person:latest
+                docker ps -a | awk '{ print $$1,$$2 }' | grep person:latest | awk '{print $$1 }' | xargs -I {} docker logs -f {}
 
 stop:
-		docker stop person:latest
 
-clean: 
-		docker rm person:latest
+                docker ps -a | awk '{ print $$1,$$2 }' | grep person:latest | awk '{print $$1 }' | xargs -I {} docker stop {}
+clean:
+                docker ps -a | awk '{ print $$1,$$2 }' | grep person:latest | awk '{print $$1 }' | xargs -I {} docker rm {}
 
 curl:
-	curl -sS http://157.175.57.19:8081/person/ | jq '.'
+	              curl -sS http://15.185.52.221:8081/person/ | jq '.'
 
