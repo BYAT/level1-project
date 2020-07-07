@@ -5,21 +5,18 @@ run:
 	docker run -it -d -p 8082:80 role:latest
 
 debug:
-	docker exec -it role:latest
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep role:latest | awk '{print $$1 }' | xargs -I {} docker exec -it {}
 logs:
-	docker logs role:lastest
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep role:latest | awk '{print $$1 }' | xargs -I {} docker logs {}
 follow:
-	docker logs -f role:lastest
+                docker ps -a | awk '{ print $$1,$$2 }' | grep role:latest | awk '{print $$1 }' | xargs -I {} docker logs -f {}
 
 stop:
-	docker stop role:lastest
-
+                docker ps -a | awk '{ print $$1,$$2 }' | grep role:latest | awk '{print $$1 }' | xargs -I {} docker stop {}
 clean:
-	docker rm role:lastest
+                docker ps -a | awk '{ print $$1,$$2 }' | grep role:latest | awk '{print $$1 }' | xargs -I {} docker rm {}
 
 curl: 
-	curl -sS http://157.175.57.19:8082/role/ | jq '.' 
+	curl -sS http://15.185.52.221:8082/role/ | jq '.' 
 
 
