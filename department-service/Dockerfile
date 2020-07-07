@@ -13,6 +13,7 @@ COPY . /department-service
 ENTRYPOINT ["node"]
 
 CMD ["index.js"]
+
 EXPOSE 80
 
 
