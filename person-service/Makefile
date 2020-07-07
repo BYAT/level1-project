@@ -14,7 +14,7 @@ follow:
 stop:
 		docker stop person:latest
 
-clean:
+clean: 
 		docker rm person:latest
 
 curl:
