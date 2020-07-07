@@ -1,7 +1,18 @@
-FROM adoptopenjdk/openjdk11:alpine as build
-ARG JAR_FILE=target/*.jar
-COPY target/person-service-1.0.0.jar /person-service-1.0.0.jar
-CMD ["java" , "-jar", "person-service-1.0.0.jar"]
-EXPOSE 80
+
+from bryandollery/maven-repo as build
+
+arg rebuild
+
+run git clone https://github.com/BYAT/level1-project.git && \
+    cd /root/level1-project/person-service && \
+    mvn clean package -DskipTests
+
+from adoptopenjdk/openjdk11:alpine
+
+copy --from=build /root/level1-project/person-service/target/person-service-1.0.0.jar /
+
+cmd ["java","-jar", "person-service-1.0.0.jar"]
+
+expose 80
 
 
