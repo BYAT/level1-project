@@ -7,10 +7,10 @@ debug:
 		docker ps -a | awk '{ print $$1,$$2 }' | grep office:latest | awk '{print $$1 }' | xargs -I {} docker exec -it {}
 
 logs:
-		docker ps -a | awk '{ print $$1,$$2 }' | grep office:latest | awk '{print $$1 }' | xargs -I {} docker docker logs {}
+		docker ps -a | awk '{ print $$1,$$2 }' | grep office:latest | awk '{print $$1 }' | xargs -I {} docker logs {}
 
 follow:
-	docker ps -a | awk '{ print $$1,$$2 }' | grep office:latest | awk '{print $$1 }' | xargs -I {} docker docker logs -f {}
+	docker ps -a | awk '{ print $$1,$$2 }' | grep office:latest | awk '{print $$1 }' | xargs -I {} docker logs -f {}
 
 stop:
 	docker ps -a | awk '{ print $$1,$$2 }' | grep office:latest | awk '{print $$1 }' | xargs -I {} docker stop {}
